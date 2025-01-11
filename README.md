@@ -55,23 +55,45 @@ In the Networking tab of this VM, I'll make sure it will create itself on the sa
 
 I now need to set our DC (Domain Controller) private IP address to "static" as by default it is set to "dynamic". I want this to be static, because this DC will double as a DNS (Domain Name System) server, which I will tell our client to use as a DNS server later. If the IP allocation setting were set to dynamic, the IP address could change leaving the DNS configuration of our client invalid. So, I'll go to the network settings of the DC and switch the IP allocation to static:
 
+![image](https://github.com/user-attachments/assets/e47c737b-e101-46f6-a3a5-f16942d008fc)
 
+![image](https://github.com/user-attachments/assets/fb0fcf28-4b95-4cd6-bc89-f4be69d0cdb1)
 
 Next, I'll use Remote Desktop Connection to connect to the DC using its public IP and the log in credentials I created when setting up this machine:
 
+![image](https://github.com/user-attachments/assets/e43ab617-1899-40c3-8684-5ca5fee460d2)
+
 Once I'm logged in, the following screen will appear with the Server Manager open. (If this isn't what you're seeing and instead it a regular windows desktop, you may have connected to the client VM instead or chose the wrong image when creating the DC):
+
+![image](https://github.com/user-attachments/assets/ec106ef1-141e-4338-adcf-f4c6f625b7d3)
 
 Next, I'm going to disable the firewall (you probably wouldn't do this in real lfe, but for the sake of this lab where nothing is at stake, I'll go ahead and do it). So, to disable the firewall I'll right click on the "Start" button and select "Run". Then type "wf.msc":
 
+![image](https://github.com/user-attachments/assets/e70673c3-cb0f-40e9-8efe-575fec07b8bd)
+
 Click on "Windows Defender Firewall Properties" then on the, "Domain Profile", "Private Profile, and the "Public Profile" tabs, turn the firewall state off:
+
+![image](https://github.com/user-attachments/assets/385287d7-84c9-4a0b-b381-5a5c052b86f8)
+
+![image](https://github.com/user-attachments/assets/e259ef55-8b0f-462c-bff6-526a863ab522)
+
+![image](https://github.com/user-attachments/assets/0ffc0320-c551-4267-a37c-e4320693088b)
 
 You should see that all the firewall settings are disable:
 
+![image](https://github.com/user-attachments/assets/0ba52e60-cd34-46c9-8cda-84d6ac14c3d2)
+
 Next, I need configure our clients DNS settings to the DC. To start, back in Azure, I'll grab the DCs private IP address:
+
+![image](https://github.com/user-attachments/assets/5dfcf864-7b68-440c-a329-15efd203fca8)
 
 Then, I'll go to the network setting of the client machine. click on the NIC (Network Interface Card), go to settings, then DNS servers and switch from "Inherit from virtual network" to "Custom". Input the DCs private IP here and save:
 
+![image](https://github.com/user-attachments/assets/1bd9e2c4-f11c-47a8-b044-b70a100b4d29)
+
 After that's saved, I'll restart the client machine:
+
+
 
 Once the machine as restarted, I'll use Remote Desktop connection to connect to the client machine using its public IP and the log in credentials I created while setting up this machine:
 
