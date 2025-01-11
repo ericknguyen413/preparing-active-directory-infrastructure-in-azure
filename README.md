@@ -45,9 +45,17 @@ In the Networking tab of this VM, I'll make sure it will create itself on the vi
 
 Now, I'll create another VM that will serve as the client. The image for this machine should be Windows 10, NOT Windows Server like I did for the previous machine:
 
+![image](https://github.com/user-attachments/assets/7a2078cd-f157-4a11-b1e6-d73baf181aa0)
+
+![image](https://github.com/user-attachments/assets/a147e0bd-5c5f-4edd-be04-614c147bf5d2)
+
 In the Networking tab of this VM, I'll make sure it will create itself on the same virtual network of the previous machine created. I'll leave all other settings default and create this VM:
 
-I now need to set our DC (Domain Controller) private IP address to "static" as by default it is set to "dynamic". I want this to be static, because this DC will double as a DNS (Domain Name System) server, which I will tell our client to use as a DNS server later. If the IP allocation setting were set to dynamic, the IP address could change leaving the DNS configuration of our client invalid. So, I'll go to the network settings of the DC and switch the IP allocation to static:  
+![image](https://github.com/user-attachments/assets/285853c9-00c2-40fc-b91e-aa4497093592)
+
+I now need to set our DC (Domain Controller) private IP address to "static" as by default it is set to "dynamic". I want this to be static, because this DC will double as a DNS (Domain Name System) server, which I will tell our client to use as a DNS server later. If the IP allocation setting were set to dynamic, the IP address could change leaving the DNS configuration of our client invalid. So, I'll go to the network settings of the DC and switch the IP allocation to static:
+
+
 
 Next, I'll use Remote Desktop Connection to connect to the DC using its public IP and the log in credentials I created when setting up this machine:
 
