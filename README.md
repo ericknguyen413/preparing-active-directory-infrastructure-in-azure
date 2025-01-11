@@ -93,13 +93,19 @@ Then, I'll go to the network setting of the client machine. click on the NIC (Ne
 
 After that's saved, I'll restart the client machine:
 
-
+![image](https://github.com/user-attachments/assets/3e1b0835-8045-4351-8c13-f43c68b25ce5)
 
 Once the machine as restarted, I'll use Remote Desktop connection to connect to the client machine using its public IP and the log in credentials I created while setting up this machine:
 
+![image](https://github.com/user-attachments/assets/af9ea637-2d14-4398-b98c-d894dd4b8142)
+
 Now that I'm logged in, I will open Powershell and attempt to ping the DC using the ping command and its private IP address. In my case it'll look like this. (If there is an error and the connection timed out, double check in Azure to make sure both of the machines are on the same virtual network. If they aren't this is likely causing the error and you'll need to set up the machine again on the same network):
 
+![image](https://github.com/user-attachments/assets/e4b8d63f-8648-469f-922d-7cc4f0394e0f)
+
 While I'm here I can double check that the DNS server settings are pointing to the DC. I'll run "ipconfig /all" and look for the "DNS Servers" and it should point to our DC if everything is set up properly:
+
+![image](https://github.com/user-attachments/assets/d8b9da51-a8e0-4c3a-ae55-87a679c970b6)
 
 <h2>Active Directory Infrastructure is Now Prepared! </h2>
 
